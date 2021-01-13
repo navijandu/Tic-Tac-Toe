@@ -1,0 +1,144 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size)* .9);
+}
+
+body {
+    margin: 0;
+}
+
+.box
+
+/* board*/
+    {
+
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+
+}
+
+.top
+
+/*cell*/
+    {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+
+}
+
+/*remove border*/
+.top:first-child,
+.top:nth-child(2),
+.top:nth-child(3) {
+    border-top: none;
+}
+
+/*remove border*/
+.top:last-child,
+.top:nth-child(8),
+.top:nth-child(7) {
+    border-bottom: none;
+}
+
+/*removing left border*/
+.top:nth-child(3n +1) {
+    border-left: none;
+}
+
+/*removing right border*/
+.top:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.top span {
+
+    color: black;
+}
+
+.top.x,
+.top.circle {
+    cursor: not-allowed;
+}
+
+.top.x::before,
+.top.x::after,
+.top.circle::before {
+    background-color: black;
+}
+
+/*hover effect */
+.box.x .top:not(.x):not(.circle):hover::before,
+.box.x .top:not(.x):not(.circle):hover::after,
+.box.circle .top:not(.x):not(.circle):hover::before {
+    background-color: lightgray;
+}
+
+
+/*creating x class*/
+.top.x::before,
+.top.x::after,
+.box.x .top:not(.x):not(.circle):hover::before,
+.box.x .top:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size)* .15);
+    height: var(--mark-size);
+
+}
+
+/*rotaititng linies*/
+.top.x::before,
+.box.x .top:not(.x):not(.circle):hover::before {
+    transform: rotate(45deg);
+}
+
+.top.x::after,
+.box.x .top:not(.x):not(.circle):hover::after {
+    transform: rotate(-45deg);
+}
+
+/*creating circle class*/
+.top.circle::before,
+.top.circle::after,
+.box.circle .top:not(.x):not(.circle):hover::before,
+.box.circle .top:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+/*first circle in background*/
+.top.circle::before,
+.box.circle .top:not(.x):not(.circle):hover::before {
+
+    width: var(--mark-size);
+    height: var(--mark-size);
+
+}
+
+/*2nd circle on top */
+.top.circle::after,
+.box.circle .top:not(.x):not(.circle):hover::after {
+
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size) * .7);
+    background-color: white;
+}
