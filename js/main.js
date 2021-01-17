@@ -47,12 +47,13 @@ $(".top").removeClass("x || circle")*/
         $(".box").removeClass("x || circle")
         $(".top").removeClass("x || circle")
         $(".winnerMessage").addClass("show")
+        $(".result").html("")
     });
     /*reset on result page*/
     $(".restartButton-Outer").click(function () {
         $(".box").removeClass("x || circle")
         $(".top").removeClass("x || circle")
-        $(".result").append("")
+        $(".result").html("")
 
     });
 
