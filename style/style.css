@@ -81,11 +81,13 @@ body {
 }
 
 .top.x::before,
-.top.x::after,
-.top.circle::before {
+.top.x::after {
     background-color: #14751aed;
 }
 
+.top.circle::before {
+    background-color: red;
+}
 
 /*hover effect */
 .box.x .top:not(.x):not(.circle):hover::before,
