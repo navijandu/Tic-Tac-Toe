@@ -1,7 +1,5 @@
 $(document).ready(function () {
-
     $(".top").click(function () {
-
         if ($(".box").hasClass("circle")) {
             if ($(this).hasClass("x")) {
                 alert("Please Try diffrent box");
@@ -9,7 +7,13 @@ $(document).ready(function () {
                 $(this).addClass("circle")
                 var winnervalue = checkWinnner();
                 if (winnervalue) {
-                    alert("circle winner ")
+                    setTimeout(function () {
+                        $(".result").append("Circel is Winner")
+                        $(".winnerMessage").addClass("show")
+                        /*$(".box").removeClass("x || circle")
+$(".top").removeClass("x || circle")*/
+                    }, 400)
+
                 }
                 $(".box").removeClass("circle").addClass("x")
             }
@@ -21,15 +25,53 @@ $(document).ready(function () {
                 /*setTimeout(function () {*/
                 var winnervalue = checkWinnner();
                 if (winnervalue) {
-                    alert("x winner ")
+                    /*$(".winnerMessage").addClass("show")*/
+                    setTimeout(function () {
+                        /*  alert("X is winner")*/
+                        $(".result").append("X is Winner")
+                        $(".winnerMessage").addClass("show")
+                        /* $(".box").removeClass("x || circle")
+                         $(".top").removeClass("x || circle")*/
+
+                    }, 400)
+
                 }
                 /*}, 1000)*/
                 $(".box").removeClass("x").addClass("circle")
             }
         }
     });
-});
 
+    /*Reset button to reload the game*/
+    $("#restartButton").click(function () {
+        $(".box").removeClass("x || circle")
+        $(".top").removeClass("x || circle")
+        $(".winnerMessage").addClass("show")
+    });
+    /*reset on result page*/
+    $(".restartButton-Outer").click(function () {
+        $(".box").removeClass("x || circle")
+        $(".top").removeClass("x || circle")
+        $(".result").append("")
+
+    });
+
+    /*selecting circle class*/
+    $("#select-C").click(function () {
+        $(".winnerMessage").removeClass("show")
+        $(".box").addClass("circle")
+
+        $(".top").removeClass("x || circle")
+    });
+    /*selecting the X class*/
+    $("#select-X").click(function () {
+        $(".winnerMessage").removeClass("show")
+        $(".box").addClass("x")
+
+        $(".top").removeClass("x || circle")
+    });
+
+});
 
 function checkWinnner() {
     var turn = $(".box").attr("class").split(" ")[1];
