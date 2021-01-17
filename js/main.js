@@ -20,6 +20,7 @@ $(".top").removeClass("x || circle")*/
         } else if ($(".box").hasClass("x")) {
             if ($(this).hasClass("circle")) {
                 alert("Please Try diffrent box");
+
             } else {
                 $(this).addClass("x");
                 /*setTimeout(function () {*/
