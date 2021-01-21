@@ -193,6 +193,7 @@ winning message */
     border-color: white;
 }
 
+/*Buttons Style*/
 #restartButton {
     font-size: 0.6em;
     background-color: white;
@@ -206,8 +207,25 @@ winning message */
     background-color: black;
     color: white;
     border-color: white;
+
 }
 
+.restartButton-Outer {
+    font-size: 0.6em;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .25em;
+    cursor: pointer;
+    border-radius: 5%;
+
+}
+
+.restartButton-Outer:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+
+}
 
 
 .welcome {
@@ -231,4 +249,41 @@ winning message */
     display: flex;
 }
 
-/*Glow the text */
+/*Background*/
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*text style*/
+.ml16 {
+    color: #402d2d;
+    padding: 40px 0;
+    font-weight: 900;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.ml16 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
